@@ -1,6 +1,73 @@
-*{padding: 0; margin: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
-
-body{
-    background:url(/img/cidade.png) center/cover no-repeat fixed; 
-    
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+body {
+    background: url(/img/cidade.png) center/cover no-repeat fixed;
+}
+
+#cadastro,
+#login {
+    margin: 0 auto;
+    margin-top: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 35vh;
+    width: 400px;
+    background-color: #fff;
+    padding: 40px 20px;
+    border-radius: 10px;
+    gap: 20px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: #1057c2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;   
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+button[type="submit"]:hover{
+    background-color:#0e3877;
+}
+
+a {
+    color: #121212;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #0a4fda;
+}
+
+/* Estilo dos Inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"]
+{
+    width: 100%;
+    padding: 7px 9px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+    }
+
+    .hidden {
+        display: none !important;
+        visibility: hidden;
+    }
