@@ -1,4 +1,4 @@
-namespace script
+namespace main
 {
     internal class Program
     {

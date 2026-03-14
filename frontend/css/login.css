@@ -1,73 +1,101 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
 
-body {
-    background: url(/img/cidade.png) center/cover no-repeat fixed;
-}
-
-#cadastro,
-#login {
-    margin: 0 auto;
-    margin-top: 250px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 35vh;
-    width: 400px;
+/* LADO ESQUERDO - Criando as formas geométricas */
+.side-image {
+    flex: 1;
+    position: relative;
     background-color: #fff;
-    padding: 40px 20px;
-    border-radius: 10px;
-    gap: 20px;
+    overflow: hidden;
 }
 
-button[type="submit"] {
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    left: -20%; /* Puxa o círculo para fora da tela */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.shape-1 {
+    width: 120%;
+    height: 140%;
+    background-color: #a32d2d; /* Vermelho escuro */
+    z-index: 3;
+}
+
+.shape-2 {
+    width: 140%;
+    height: 160%;
+    background-color: #c94c4c; /* Vermelho médio */
+    z-index: 2;
+    left: -30%;
+}
+
+.shape-3 {
+    width: 160%;
+    height: 180%;
+    background-color: #e07a7a; /* Vermelho claro */
+    z-index: 1;
+    left: -40%;
+}
+
+/* LADO DIREITO - Formulário */
+.login-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+
+.login-box {
     width: 100%;
-    padding: 12px;
-    margin-top: 20px;
-    background-color: #1057c2;
+    max-width: 400px;
+    text-align: center;
+    padding: 20px;
+}
+
+.login-box h1 {
+    color: #1a2a40; /* Azul bem escuro */
+    font-size: 3rem;
+    margin-bottom: 50px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #1a2a40;
+    border-radius: 15px;
+    font-size: 1rem;
+    outline: none;
+    color: #555;
+}
+
+.input-group .icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: #1a2a40;
+}
+
+.btn-entrar {
+    background-color: #a32d2d;
     color: white;
     border: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-weight: 600;   
+    padding: 12px 60px;
+    border-radius: 8px;
+    font-size: 1.1rem;
     cursor: pointer;
-    transition: background-color 0.3s;
-}
-button[type="submit"]:hover{
-    background-color:#0e3877;
+    transition: background 0.3s;
+    margin-top: 20px;
 }
 
-a {
-    color: #121212;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s;
+.btn-entrar:hover {
+    background-color: #802323;
 }
-
-a:hover {
-    color: #0a4fda;
-}
-
-/* Estilo dos Inputs */
-input[type="text"],
-input[type="email"],
-input[type="password"]
-{
-    width: 100%;
-    padding: 7px 9px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1rem;
-    transition: border-color 0.3s;
-    }
-
-    .hidden {
-        display: none !important;
-        visibility: hidden;
-    }

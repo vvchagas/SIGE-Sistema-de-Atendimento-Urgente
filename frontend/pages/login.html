@@ -1,40 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SIGE - Login</title>
+    <link rel="stylesheet" href="/frontend/css/login.css" />
+    <link rel="shortcut icon" href="/img/logo.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=person" />
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="side-image">
+        <img src="/img/image.png" alt="image lado esquerdo" class="luzes" />
+      </div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saúde Conectada - Login</title>
-    <link rel="shortcut icon" href="/img/logo.png" type="marilia logo">
-    <link rel="stylesheet" href="/frontend/css/login.css">
-</head>
-<body>
-    
-    <section id="cadastro">
-        <h1>Sáude Conectada</h1>
-        <form action="" method="post" id="form">
-            <p>nome</p>
-            <input type="text" placeholder="seu nome completo"  required>
-            <p>email</p>
-            <input type="email" placeholder="Digite seu email" required>
-            <p>telefone</p>
-            <input type="text" placeholder="(00) 12345-6789">
-            <p>senha</p> 
-            <input type="password" placeholder="sua senha" required>
-            <p>Possui um cadastro? <a href="#">Cadastre aqui</a></p>
-            <button type="submit">Cadastrar-se</button>
-        </form>
-    </section>
-    <section id="login" class="hidden">
-        <h1>Sáude Conectada</h1>
-        <form action="" method="post" id="form">
-            <p>login</p>
-            <input type="text" name="" required>
-            <p>senha</p>
-            <input type="password" name="" required>
-            <button type="submit">Entrar</button>
-        </form>
-    </section>
-</body>
+      <div class="login-content">
+        <div class="login-box">
+          <h1>Login</h1>
 
+          <form>
+            <div class="input-group">
+              <input type="text" placeholder="Usuario" />
+              <span class="material-symbols-outlined">person</span>
+            </div>
+
+            <div class="input-group">
+              <input type="password" placeholder="Senha" />
+              <span class="material-symbols-outlined"> key </span>
+            </div>
+
+            <button type="submit" class="btn-entrar">entrar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
