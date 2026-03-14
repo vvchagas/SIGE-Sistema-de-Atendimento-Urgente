@@ -1,42 +1,19 @@
+*{padding: 0;margin: 0;box-sizing: border-box;overflow-x: hidden;}
+
 
 /* LADO ESQUERDO - Criando as formas geométricas */
 .side-image {
     flex: 1;
     position: relative;
     background-color: #fff;
+    overflow: hidden;  
+}
+.side-image, .luzes{
     overflow: hidden;
+    width: 809px;
 }
 
-.shape {
-    position: absolute;
-    border-radius: 50%;
-    left: -20%; /* Puxa o círculo para fora da tela */
-    top: 50%;
-    transform: translateY(-50%);
-}
 
-.shape-1 {
-    width: 120%;
-    height: 140%;
-    background-color: #a32d2d; /* Vermelho escuro */
-    z-index: 3;
-}
-
-.shape-2 {
-    width: 140%;
-    height: 160%;
-    background-color: #c94c4c; /* Vermelho médio */
-    z-index: 2;
-    left: -30%;
-}
-
-.shape-3 {
-    width: 160%;
-    height: 180%;
-    background-color: #e07a7a; /* Vermelho claro */
-    z-index: 1;
-    left: -40%;
-}
 
 /* LADO DIREITO - Formulário */
 .login-content {
@@ -45,6 +22,8 @@
     justify-content: center;
     align-items: center;
     background-color: #fff;
+    overflow: hidden;
+    margin: auto;
 }
 
 .login-box {
@@ -52,6 +31,7 @@
     max-width: 400px;
     text-align: center;
     padding: 20px;
+    padding-right: 100px;
 }
 
 .login-box h1 {
