@@ -2,5 +2,6 @@
 {
     public class Ambulancia
     {
+        public Guid Id { get; set; }
     }
 }

@@ -1,6 +1,9 @@
-﻿namespace SIGEApi.Models
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace SIGEApi.Models
 {
-    public class Usuario
+    public class Usuario : IdentityUser
     {
+        public Guid Id { get; set; }
     }
 }

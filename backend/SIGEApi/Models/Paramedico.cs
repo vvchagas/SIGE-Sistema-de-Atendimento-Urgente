@@ -2,5 +2,6 @@
 {
     public class Paramedico
     {
+        public Guid Id { get; set; }
     }
 }
