@@ -121,7 +121,20 @@ namespace SIGEApi.Services
                 Sucesso = false,
                 Mensagem = resultado.Errors.ToString()!
             };
+        }
+        public async Task<UserReadDto?> InfoUser(string emailUsuario)
+        {
+            var usuario = await _userManager.FindByEmailAsync(emailUsuario);
+            if (usuario is null) { return null; };
 
+            return new UserReadDto
+            {
+                Nome = usuario.Nome,
+                Email = usuario.Email!,
+                Telefone = usuario.PhoneNumber,
+                Cpf = usuario.Cpf,
+                Cargo = usuario.Cargo,
+            };
         }
     }
 }

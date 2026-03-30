@@ -7,6 +7,7 @@ using SIGEApi.DTOs.AuthDtos;
 using SIGEApi.Models;
 using SIGEApi.Services;
 using System.Linq.Expressions;
+using System.Security.Claims;
 
 namespace SIGEApi.Controllers
 {
@@ -44,6 +45,22 @@ namespace SIGEApi.Controllers
 
             if (respostaRequest.Sucesso) { return Ok(respostaRequest); }
             return BadRequest(respostaRequest);
+        }
+        [Authorize]
+        [HttpGet("me")]
+        public async Task<ActionResult<UserReadDto>> GetUser()
+        {
+            var emailUsuario = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (string.IsNullOrEmpty(emailUsuario))
+                return Unauthorized("Token inválido ou sem identificação.");
+            
+            var resultado = await serivce.InfoUser(emailUsuario);
+
+            if (resultado == null)
+                return NotFound("Usuário não encontrado no sistema.");
+
+            return Ok(resultado);
         }
     }
 }
