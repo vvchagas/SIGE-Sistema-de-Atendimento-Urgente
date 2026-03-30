@@ -6,6 +6,7 @@ using Microsoft.IdentityModel.Tokens;
 using Scalar.AspNetCore;
 using SIGEApi.Data;
 using SIGEApi.Models;
+using SIGEApi.Services;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -55,6 +56,7 @@ builder.Services.AddAuthorization(options =>
     options.AddPolicy("UserPolicy", policy => policy.RequireRole("User"));
 });
 
+builder.Services.AddScoped<AutenticacaoService>();
 
 var app = builder.Build();
 
