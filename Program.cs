@@ -6,6 +6,7 @@ using Microsoft.IdentityModel.Tokens;
 using Scalar.AspNetCore;
 using SIGEApi.Data;
 using SIGEApi.Models;
+using SIGEApi.Repositories;
 using SIGEApi.Services;
 using System.Text;
 
@@ -57,6 +58,8 @@ builder.Services.AddAuthorization(options =>
 });
 
 builder.Services.AddScoped<AutenticacaoService>();
+builder.Services.AddScoped<AmbulanciaService>();
+builder.Services.AddScoped<AmbulanciaRepository>();
 
 var app = builder.Build();
 
