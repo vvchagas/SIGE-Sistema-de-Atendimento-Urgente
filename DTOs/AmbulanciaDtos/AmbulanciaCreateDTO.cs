@@ -1,0 +1,17 @@
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SIGEApi.DTOs.AmbulanciaDtos
+{
+    public class AmbulanciaCreateDTO
+    {
+        [Required]
+        public string Placa { get; set; }
+        [Required]
+        public string? Marca { get; set; }
+        [Required]
+        public string? Modelo { get; set; }
+        [Required]
+        public string? Tipo { get; set; }
+
+    }
+}
