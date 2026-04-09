@@ -1,12 +1,589 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SIGE - Dashboard</title>
-    <link rel="shortcut icon" href="/img/logo.png" type="marilia logo">
-</head>
-<body>
-    
-</body>
+    <link
+      rel="shortcut icon"
+      href="/frontend/img/logo.png"
+      type="image/x-icon"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#f3f4f5",
+              "secondary-fixed": "#dee0ff",
+              "outline-variant": "#c6c5d4",
+              outline: "#767683",
+              "tertiary-fixed": "#ebdcff",
+              surface: "#f8f9fa",
+              "primary-fixed": "#e0e0ff",
+              "surface-bright": "#f8f9fa",
+              "secondary-container": "#8596ff",
+              "primary-fixed-dim": "#bdc2ff",
+              "on-tertiary-fixed-variant": "#572e99",
+              "on-secondary-fixed-variant": "#293ca0",
+              "on-background": "#191c1d",
+              "inverse-on-surface": "#f0f1f2",
+              "on-tertiary-container": "#ab83f2",
+              error: "#ba1a1a",
+              "on-secondary": "#ffffff",
+              "surface-dim": "#d9dadb",
+              "surface-container-high": "#e7e8e9",
+              "on-primary-fixed-variant": "#343d96",
+              "on-error": "#ffffff",
+              secondary: "#4355b9",
+              "error-container": "#ffdad6",
+              "inverse-surface": "#2e3132",
+              primary: "#000666",
+              "on-primary-container": "#8690ee",
+              "secondary-fixed-dim": "#bac3ff",
+              "surface-tint": "#4c56af",
+              "on-primary-fixed": "#000767",
+              "on-error-container": "#93000a",
+              "on-primary": "#ffffff",
+              "tertiary-fixed-dim": "#d4bbff",
+              "on-secondary-container": "#11278e",
+              "primary-container": "#1a237e",
+              "inverse-primary": "#bdc2ff",
+              "surface-container-highest": "#e1e3e4",
+              "surface-variant": "#e1e3e4",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-fixed": "#260058",
+              "tertiary-container": "#3f0e81",
+              "surface-container": "#edeeef",
+              "on-secondary-fixed": "#00105c",
+              "on-tertiary": "#ffffff",
+              "on-surface": "#191c1d",
+              tertiary: "#260057",
+              background: "#f8f9fa",
+              "on-surface-variant": "#454652",
+            },
+            fontFamily: {
+              headline: ["Work Sans"],
+              body: ["Inter"],
+              label: ["Inter"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: fill 0, wght 400, GRAD 0, opsz 48;
+        }
+        body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f8f9fa;
+        color: #191c1d;
+      }
+      h1, h2, h3 {
+        font-family: 'Work Sans', sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="appDashboard"></div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+      const { createApp, ref, reactive } = Vue;
+
+      createApp({
+        setup() {
+          return {};
+        },
+        template: `
+          <aside
+      class="fixed left-0 top-0 h-full flex flex-col py-6 bg-slate-50 dark:bg-slate-900 h-screen w-64 border-r-0 z-50"
+    >
+      <div class="px-6 mb-10">
+        <span
+          class="text-xl font-bold text-blue-900 dark:text-blue-50 tracking-tight"
+          >SIGE Emergências</span
+        >
+      </div>
+      <nav class="flex-1 space-y-1">
+        <!-- Active: Dashboard -->
+        <a
+          class="bg-blue-900 dark:bg-blue-600 text-white rounded-full mx-2 flex items-center px-4 py-3 scale-95 active:scale-90 duration-150 transition-all"
+          href="#"
+        >
+          <span class="material-symbols-outlined mr-3" data-icon="dashboard"
+            >dashboard</span
+          >
+          <span class="font-medium">Dashboard</span>
+        </a>
+        <a
+          class="text-slate-500 dark:text-slate-400 hover:text-blue-900 dark:hover:text-blue-200 px-4 py-3 hover:bg-slate-200/50 dark:hover:bg-slate-800 transition-all flex items-center mx-2 rounded-full"
+          href="#"
+        >
+          <span
+            class="material-symbols-outlined mr-3"
+            data-icon="pending_actions"
+            >pending_actions</span
+          >
+          <span class="font-medium">Chamados</span>
+        </a>
+        <a
+          class="text-slate-500 dark:text-slate-400 hover:text-blue-900 dark:hover:text-blue-200 px-4 py-3 hover:bg-slate-200/50 dark:hover:bg-slate-800 transition-all flex items-center mx-2 rounded-full"
+          href="#"
+        >
+          <span
+            class="material-symbols-outlined mr-3"
+            data-icon="groups_2"
+            >groups_2</span
+          >
+          <span class="font-medium">Equipe</span>
+        </a>
+        <a
+          class="text-slate-500 dark:text-slate-400 hover:text-blue-900 dark:hover:text-blue-200 px-4 py-3 hover:bg-slate-200/50 dark:hover:bg-slate-800 transition-all flex items-center mx-2 rounded-full"
+          href="#"
+        >
+          <span class="material-symbols-outlined mr-3" data-icon="ambulance"
+            >ambulance</span
+          >
+          <span class="font-medium">Veículos</span>
+        </a>
+        <a
+          class="text-slate-500 dark:text-slate-400 hover:text-blue-900 dark:hover:text-blue-200 px-4 py-3 hover:bg-slate-200/50 dark:hover:bg-slate-800 transition-all flex items-center mx-2 rounded-full"
+          href="#"
+        >
+          <span class="material-symbols-outlined mr-3" data-icon="settings"
+            >settings</span
+          >
+          <span class="font-medium">Configurações</span>
+        </a>
+      </nav>
+      <div class="px-6 mt-auto flex items-center space-x-3">
+        <img
+          alt="User Profile Avatar"
+          class="w-10 h-10 rounded-full bg-slate-200"
+          data-alt="Male doctor profile photo avatar"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTUf6JV8__QMvukGhTXOcp_--7OdPhLeVB8OQdubfhp9gfTfOs0Xp8KE92DSf-lGYQRXNE7Fb8BMLc2EeS_H_gK0rplhE-t2uWYcL0jOUy4ekDrCw9ttKc8UNrDTRBsJSsHUC6fozifUwzSmgCwHEzz8pwBQUJR60nC4Mc8I7kq4tCxTyXIJBKrDb6DQEfie670CpFnDDg6OI19duG2aakXy3SXenu379-VKA7iLX_pfF3_DcS4siIrOBhvjrCaqSBpT7WmmpM2DI"
+        />
+        <div class="overflow-hidden">
+          <p class="text-sm font-bold truncate text-primary">
+            Dr. Ricardo Silva
+          </p>
+          <p class="text-xs text-outline truncate">Supervisor de Turno</p>
+        </div>
+      </div>
+    </aside>
+    <header
+      class="flex justify-between items-center w-full pl-72 pr-8 h-20 fixed top-0 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md z-40 border-b border-slate-100 dark:border-slate-800"
+    >
+      <h1
+        class="text-2xl font-bold font-headline text-blue-900 dark:text-blue-400 tracking-tight"
+      >
+        SIGE Dashboard
+      </h1>
+      <div class="flex items-center space-x-6">
+        <div class="relative hidden lg:block">
+          <span
+            class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline"
+            data-icon="search"
+            >search</span
+          >
+          <input
+            class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full w-64 focus:ring-2 focus:ring-primary text-sm"
+            placeholder="Buscar chamados..."
+            type="text"
+          />
+        </div>
+        <div class="flex items-center space-x-4">
+          <button class="opacity-80 hover:opacity-100 transition-opacity">
+            <span
+              class="material-symbols-outlined text-blue-900 dark:text-blue-400"
+              data-icon="notifications"
+              >notifications</span
+            >
+          </button>
+          <button class="opacity-80 hover:opacity-100 transition-opacity">
+            <span
+              class="material-symbols-outlined text-blue-900 dark:text-blue-400"
+              data-icon="account_circle"
+              >account_circle</span
+            >
+          </button>
+        </div>
+      </div>
+    </header>
+    <!-- Main Content Area -->
+    <main class="pl-72 pr-8 pt-28 pb-12 min-h-screen">
+      <!-- Dashboard Summary Grid -->
+      <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+        <!-- Aberto -->
+        <div
+          class="bg-surface-container-lowest p-6 rounded-xl border-none shadow-sm flex items-center space-x-4"
+        >
+          <div
+            class="w-12 h-12 rounded-full bg-error-container flex items-center justify-center"
+          >
+            <span
+              class="material-symbols-outlined text-error"
+              data-icon="pending"
+              >pending</span
+            >
+          </div>
+          <div>
+            <p
+              class="text-sm font-medium text-outline uppercase tracking-wider"
+            >
+              Aberto
+            </p>
+            <p class="text-3xl font-extrabold font-headline text-primary">08</p>
+          </div>
+        </div>
+        <!-- Em Atendimento -->
+        <div
+          class="bg-surface-container-lowest p-6 rounded-xl border-none shadow-sm flex items-center space-x-4"
+        >
+          <div
+            class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center"
+          >
+            <span
+              class="material-symbols-outlined text-secondary"
+              data-icon="emergency"
+              >emergency</span
+            >
+          </div>
+          <div>
+            <p
+              class="text-sm font-medium text-outline uppercase tracking-wider"
+            >
+              Em Atendimento
+            </p>
+            <p class="text-3xl font-extrabold font-headline text-primary">14</p>
+          </div>
+        </div>
+        <!-- Finalizado -->
+        <div
+          class="bg-surface-container-lowest p-6 rounded-xl border-none shadow-sm flex items-center space-x-4"
+        >
+          <div
+            class="w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center"
+          >
+            <span
+              class="material-symbols-outlined text-on-tertiary-fixed-variant"
+              data-icon="check_circle"
+              >check_circle</span
+            >
+          </div>
+          <div>
+            <p
+              class="text-sm font-medium text-outline uppercase tracking-wider"
+            >
+              Finalizado
+            </p>
+            <p class="text-3xl font-extrabold font-headline text-primary">
+              124
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Asymmetric Layout: Incidents (Main) + Paramedics (Side) -->
+      <div class="grid grid-cols-1 xl:grid-cols-12 gap-8">
+        <!-- List of Current Incidents -->
+        <section class="xl:col-span-8 space-y-4">
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="text-xl font-bold font-headline text-primary">
+              Chamados em Tempo Real
+            </h2>
+            <span
+              class="px-3 py-1 bg-surface-container-high rounded-full text-xs font-semibold text-outline"
+              >ATUALIZADO AGORA</span
+            >
+          </div>
+          <!-- Incident Card: Red (High Priority) -->
+          <div
+            class="bg-surface-container-lowest p-5 rounded-xl flex items-center border-l-8 border-error shadow-sm hover:translate-x-1 transition-transform cursor-pointer"
+          >
+            <div class="flex-1">
+              <div class="flex items-center space-x-3 mb-1">
+                <h3 class="font-bold text-lg text-primary">
+                  Ana Beatriz Mendes
+                </h3>
+                <span
+                  class="bg-error-container text-error text-[10px] font-bold px-2 py-0.5 rounded-full uppercase"
+                  >Crítico</span
+                >
+              </div>
+              <div class="flex items-center space-x-4 text-sm text-outline">
+                <span class="flex items-center"
+                  ><span
+                    class="material-symbols-outlined text-base mr-1"
+                    data-icon="location_on"
+                    >location_on</span
+                  >
+                  Av. Paulista, 1000</span
+                >
+                <span class="flex items-center font-medium text-primary"
+                  ><span
+                    class="material-symbols-outlined text-base mr-1"
+                    data-icon="schedule"
+                    >schedule</span
+                  >
+                  4 min atrás</span
+                >
+              </div>
+            </div>
+            <div class="text-right">
+              <span class="block text-xs font-bold text-error mb-1"
+                >ABERTO</span
+              >
+              <button
+                class="bg-primary text-white text-xs font-bold px-4 py-2 rounded-full hover:bg-primary-container transition-colors"
+              >
+                DESIGNAR
+              </button>
+            </div>
+          </div>
+          <!-- Incident Card: Yellow (Medium Priority) -->
+          <div
+            class="bg-surface-container-lowest p-5 rounded-xl flex items-center border-l-8 border-amber-400 shadow-sm hover:translate-x-1 transition-transform cursor-pointer"
+          >
+            <div class="flex-1">
+              <div class="flex items-center space-x-3 mb-1">
+                <h3 class="font-bold text-lg text-primary">
+                  Carlos Eduardo Lima
+                </h3>
+                <span
+                  class="bg-amber-100 text-amber-600 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase"
+                  >Urgente</span
+                >
+              </div>
+              <div class="flex items-center space-x-4 text-sm text-outline">
+                <span class="flex items-center"
+                  ><span
+                    class="material-symbols-outlined text-base mr-1"
+                    data-icon="location_on"
+                    >location_on</span
+                  >
+                  Rua Augusta, 450</span
+                >
+                <span class="flex items-center font-medium text-primary"
+                  ><span
+                    class="material-symbols-outlined text-base mr-1"
+                    data-icon="schedule"
+                    >schedule</span
+                  >
+                  12 min atrás</span
+                >
+              </div>
+            </div>
+            <div class="text-right">
+              <span
+                class="block text-xs font-bold text-secondary mb-1 uppercase"
+                >Em Atendimento</span
+              >
+              <div
+                class="flex items-center justify-end text-[10px] text-outline"
+              >
+                <span
+                  class="material-symbols-outlined text-sm mr-1"
+                  data-icon="ambulance"
+                  >ambulance</span
+                >
+                USB-04
+              </div>
+            </div>
+          </div>
+          <!-- Incident Card: Green (Low Priority) -->
+          <div
+            class="bg-surface-container-lowest p-5 rounded-xl flex items-center border-l-8 border-emerald-400 shadow-sm hover:translate-x-1 transition-transform cursor-pointer"
+          >
+            <div class="flex-1">
+              <div class="flex items-center space-x-3 mb-1">
+                <h3 class="font-bold text-lg text-primary">
+                  Sônia Maria Oliveira
+                </h3>
+                <span
+                  class="bg-emerald-100 text-emerald-600 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase"
+                  >Estável</span
+                >
+              </div>
+              <div class="flex items-center space-x-4 text-sm text-outline">
+                <span class="flex items-center"
+                  ><span
+                    class="material-symbols-outlined text-base mr-1"
+                    data-icon="location_on"
+                    >location_on</span
+                  >
+                  Al. Santos, 22</span
+                >
+                <span class="flex items-center font-medium text-primary"
+                  ><span
+                    class="material-symbols-outlined text-base mr-1"
+                    data-icon="schedule"
+                    >schedule</span
+                  >
+                  28 min atrás</span
+                >
+              </div>
+            </div>
+            <div class="text-right">
+              <span
+                class="block text-xs font-bold text-secondary mb-1 uppercase"
+                >Em Atendimento</span
+              >
+              <div
+                class="flex items-center justify-end text-[10px] text-outline"
+              >
+                <span
+                  class="material-symbols-outlined text-sm mr-1"
+                  data-icon="ambulance"
+                  >ambulance</span
+                >
+                USA-02
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- List of Available Paramedics -->
+        <section class="xl:col-span-4 space-y-4">
+          <div class="mb-4">
+            <h2 class="text-xl font-bold font-headline text-primary">
+              Paramédicos Disponíveis
+            </h2>
+            <p class="text-xs text-outline">Prontos para designação imediata</p>
+          </div>
+          <div class="bg-surface-container-low rounded-2xl p-4 space-y-3">
+            <!-- Paramedic Item -->
+            <div
+              class="bg-surface-container-lowest p-3 rounded-xl flex items-center space-x-3 shadow-sm"
+            >
+              <img
+                alt="Paramedic 1"
+                class="w-12 h-12 rounded-full border-2 border-emerald-400 p-0.5"
+                data-alt="Female paramedic profile picture"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDExRlpkjxq4N2Hr_lbbJeUbWsuQpNN9s2ZYUfKfCkkGzAVzkPu2u_9bX_nvbIkS_MSNZrGZDXxl_6IjT90h8zSVKcpXgeeKK8yaigWnuSD_I4d3QYQ7FIIMQ4aou-u0UV4PD1iqvJEj5mrsonR8ABFjamJHhogJUx3JEO9lHNzq5ZOw_kcTgcLniFs4VdOZT6YtqaaKI4Gbb_rppJZP32HNGpO0jTn2FiaHCZq4dBR4YTvM37ueciHx9ooQpKACWtCk8MtDgoOZMU"
+              />
+              <div class="flex-1 min-w-0">
+                <p class="font-bold text-primary truncate">Dra. Júlia Costa</p>
+                <p class="text-[10px] font-bold text-emerald-600 uppercase">
+                  Livre • USB-09
+                </p>
+              </div>
+              <button
+                class="p-2 bg-primary-fixed rounded-full text-on-primary-fixed-variant hover:bg-secondary-fixed transition-colors"
+              >
+                <span class="material-symbols-outlined text-xl" data-icon="chat"
+                  >chat</span
+                >
+              </button>
+            </div>
+            <!-- Paramedic Item -->
+            <div
+              class="bg-surface-container-lowest p-3 rounded-xl flex items-center space-x-3 shadow-sm"
+            >
+              <img
+                alt="Paramedic 2"
+                class="w-12 h-12 rounded-full border-2 border-emerald-400 p-0.5"
+                data-alt="Male paramedic profile picture"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPfJ2Dw-PTNLeeeQq6mrVxlYlETIW3urXLBpgDkot3cCiUAxgq5rHzy79pjytyi-uCZw-bhCJSMSM3ZRPXeThdusVclG3AL9Esqt7g7K-zEK46pWOtDqldM-h8dmjd_jq5k3Qe9ijv4FMZkQboGEJ-kOfoV-MqJwJS8YKsoqwu1qn5Dijf9wrj495MQwiRJjlTNfBlne1vnxg784d1AU3TtkQlBfqDJX4gNTpmKDaJAilt3Efq0PDdejPWoG1HSYLkUUmudyBihHc"
+              />
+              <div class="flex-1 min-w-0">
+                <p class="font-bold text-primary truncate">Enf. Marcos André</p>
+                <p class="text-[10px] font-bold text-emerald-600 uppercase">
+                  Livre • Moto-01
+                </p>
+              </div>
+              <button
+                class="p-2 bg-primary-fixed rounded-full text-on-primary-fixed-variant hover:bg-secondary-fixed transition-colors"
+              >
+                <span class="material-symbols-outlined text-xl" data-icon="chat"
+                  >chat</span
+                >
+              </button>
+            </div>
+            <!-- Paramedic Item -->
+            <div
+              class="bg-surface-container-lowest p-3 rounded-xl flex items-center space-x-3 shadow-sm"
+            >
+              <img
+                alt="Paramedic 3"
+                class="w-12 h-12 rounded-full border-2 border-emerald-400 p-0.5"
+                data-alt="Female paramedic headshot"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBH3EWh3X6t1HmqzBfMDOagj5We5k75GbolS2CU5BKEiQfxEIzcMLcDi-AhRJIu7tePw5t5ZfxLJE0i1u_t1yJZASYelFOD0s8bPbKPNVQkJBKlfD8nM7YkO330VcVAoP5_ASbQZVomDMEaHvYVxbFqI4pAgS3nj-UnxWR4uV4SGIQEs_Ab5N-9ypUtMtAFRjAvi4FHopr5yUhpZiBHr6FBrmtzcdG4Rzs6vnxxZIx1UwSI1OjgjrFum1cCf6sD89yOPwcJzABzhjY"
+              />
+              <div class="flex-1 min-w-0">
+                <p class="font-bold text-primary truncate">
+                  Dra. Heloísa Fachini
+                </p>
+                <p class="text-[10px] font-bold text-emerald-600 uppercase">
+                  Livre • USA-07
+                </p>
+              </div>
+              <button
+                class="p-2 bg-primary-fixed rounded-full text-on-primary-fixed-variant hover:bg-secondary-fixed transition-colors"
+              >
+                <span class="material-symbols-outlined text-xl" data-icon="chat"
+                  >chat</span
+                >
+              </button>
+            </div>
+            <!-- Paramedic Item (Unavailable/Standby Tonal variation) -->
+            <div
+              class="bg-surface-container-high/50 p-3 rounded-xl flex items-center space-x-3 opacity-60"
+            >
+              <img
+                alt="Paramedic 4"
+                class="w-12 h-12 rounded-full border-2 border-outline-variant p-0.5"
+                data-alt="Male doctor profile in gray"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUYAGZnQOc7IyARXGuy2cfh0L5Ch-1lf6zGs1DO1Y1pcPuKBPuc1p9-vGItSfCYffx2QsI2naerxHXaXDrjozXmahsw2Qrw0rK3jmH6AdI0m4Xkpv46K2Zs4oH2lewLR8FmGkW9-yUVYot-R4h3RQvcV1_xNgoL1dd-SLlrwfInos7KRzy-YomnUan1B3BjVqpsQ4Nwt0dtCXzPS9NkyzrNgS40zgQMEaYnuhyWjI-JYViwHenbXgxpHZygVoUq7LCc7t8gesustc"
+              />
+              <div class="flex-1 min-w-0">
+                <p class="font-bold text-primary truncate">Enf. Roberto Lima</p>
+                <p class="text-[10px] font-bold text-outline uppercase">
+                  Pausa • 15min
+                </p>
+              </div>
+            </div>
+          </div>
+          <button
+            class="w-full py-3 border-2 border-dashed border-outline-variant rounded-xl text-outline font-bold text-sm hover:bg-surface-container-high hover:border-outline transition-all uppercase tracking-widest"
+          >
+            Ver todos paramédicos
+          </button>
+        </section>
+      </div>
+    </main>
+    <!-- Floating Action Button (FAB) - Trigger New Incident -->
+    <button
+      class="fixed bottom-8 right-8 w-16 h-16 bg-gradient-to-br from-primary to-primary-container text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-105 active:scale-95 transition-all z-50"
+    >
+      <span class="material-symbols-outlined text-3xl" data-icon="add_alert"
+        >add_alert</span
+      >
+    </button>
+        `,
+      }).mount("#appDashboard");
+    </script>
+  </body>
 </html>

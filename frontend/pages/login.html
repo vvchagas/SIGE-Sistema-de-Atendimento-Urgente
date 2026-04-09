@@ -1,12 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SIGE - Login </title>
-    <link rel="shortcut icon" href="/frontend/img/logo.png" type="image/x-icon">
+    <title>SIGE - Login</title>
+    <link
+      rel="shortcut icon"
+      href="/frontend/img/logo.png"
+      type="image/x-icon"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
+    <style>  
+  
       body {
         background-image: url("/frontend/img/image.png");
         background-size: 800px;
@@ -19,6 +24,7 @@
         backdrop-filter: blur(10px);
       }
     </style>
+    <!-- não precisa ter essa tag style, só se for caso de add alguma imagem de fundo -->
   </head>
   <body class="min-h-screen flex items-center justify-center p-4">
     <div id="app"></div>
@@ -31,7 +37,7 @@
       createApp({
         setup() {
           const isLogin = ref(true);
-          
+
           const form = reactive({
             nome: "",
             email: "",
@@ -39,7 +45,7 @@
             nascimento: "",
             telefone: "",
             senha: "",
-            confirmarSenha: ""
+            confirmarSenha: "",
           });
 
           const handleSubmit = () => {
@@ -47,7 +53,7 @@
               alert("As senhas não conferem!");
               return;
             }
-            
+
             const acao = isLogin.value ? "Logando..." : "Cadastrando...";
             alert(acao);
             console.log("Dados enviados:", form);
@@ -155,8 +161,8 @@
               </div>
             </form>
           </div>
-        `
-      }).mount('#app');
+        `,
+      }).mount("#app");
     </script>
   </body>
 </html>
