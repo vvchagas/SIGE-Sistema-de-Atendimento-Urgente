@@ -1,0 +1,6 @@
+@SIGEApi_HostAddress = http://localhost:5274
+
+GET {{SIGEApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
