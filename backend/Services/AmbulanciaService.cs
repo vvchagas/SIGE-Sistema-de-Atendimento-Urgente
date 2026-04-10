@@ -38,7 +38,7 @@ namespace SIGEApi.Services
             }
             return await _repository.DeletarAmbulancia(ambulancia);
         }
-        public async Task<Ambulancia> AtualizarAmbulancia(Guid id, AmbulanciaPatchDTO ambulanciaRequest)
+        public async Task<Ambulancia> AtualizarAmbulancia(Guid id, AmbulanciaUpdateDTO ambulanciaRequest)
         {
             var ambulancia = await _repository.GetAmbulanciaById(id);
             if (ambulancia == null)
